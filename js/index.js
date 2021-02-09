@@ -13,11 +13,17 @@ function find_fib(n) {
 //   const a = (1 + 5 ** 0.5) / 2;
 //   return Math.round(a ** n / 5 ** 0.5);
 // }
+let calculate_btn = document.getElementById("calculate");
+let userInput = document.getElementById("user_input");
+let userNum = 0;
+let answer;
+calculate_btn.addEventListener("click", () => {
+  userNum = userInput.value;
 
-const num = 7;
-let answer = find_fib(num);
+  answer = find_fib(userNum);
 
-let newp = document.createElement("p");
-newp.id = "answer";
-newp.innerText = `Fibbonachi of ${num} is ${answer}`;
-document.body.appendChild(newp);
+  newp.innerText = `${answer}`;
+});
+
+// Creating elements
+let newp = document.getElementById("answer");
