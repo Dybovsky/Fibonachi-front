@@ -22,3 +22,19 @@ body {
 h1 {
   font-size: 3em;
 }
+
+#spinner {
+  display: none;
+}
+
+.alert {
+  font-size: 0.8rem;
+  width: 9rem;
+  padding: 3px;
+
+  margin-left: 87px;
+  display: block;
+  transition: all 1s ease-out;
+  opacity: 0;
+  border-color: gray;
+}
