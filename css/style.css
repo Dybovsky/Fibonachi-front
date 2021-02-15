@@ -17,6 +17,7 @@ body {
 
 #answer {
   text-decoration: underline;
+  font-weight: bold;
 }
 
 h1 {
@@ -37,4 +38,17 @@ h1 {
   transition: all 1s ease-out;
   opacity: 0;
   border-color: gray;
+}
+
+body {
+  padding: 60px;
+}
+
+.results {
+}
+
+#spinner2 {
+  position: relative;
+  top: -42px;
+  left: 110px;
 }
