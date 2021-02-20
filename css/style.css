@@ -46,9 +46,31 @@ body {
 
 .results {
 }
-
+.resSpin {
+  display: flex;
+}
 #spinner2 {
-  position: relative;
-  top: -42px;
-  left: 110px;
+  margin-left: 10px;
+  padding: 15px;
+}
+.btn-secondary:focus {
+  color: black;
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
+}
+.btn-secondary {
+  color: black;
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
+}
+
+.btn-secondary:visited {
+  color: black;
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
+}
+.btn-secondary:hover {
+  color: black;
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
 }

@@ -17,13 +17,22 @@ function find_fib(n) {
 let calculate_btn = document.getElementById("calculate");
 let userInput = document.getElementById("user_input");
 let answer = document.getElementById("answer");
+
 let spinner = document.getElementById("spinner");
 let spinner2 = document.getElementById("spinner2");
 let url = "";
 let alert = document.getElementById("alert");
+
 let resultsUrl = "http://localhost:5050/getFibonacciResults";
 let resultsUl = document.getElementById("results");
 let isSaveRes = document.getElementById("saveRes");
+
+let listOfResults = [];
+
+let numAsc = document.getElementById("numAsc");
+let numDesc = document.getElementById("numDesc");
+let dateAsc = document.getElementById("dateAsc");
+let dateDesc = document.getElementById("dateDesc");
 
 function gettingResult() {
   url = `http://localhost:5050/fibonacci/${userInput.value}`;
@@ -97,6 +106,7 @@ function callList(url) {
   fetch(url).then((response) => {
     response.json().then((data) => {
       for (let item of data.results) {
+        listOfResults.push(item);
         displayResults(item); // console.log(item);  answer <-
       }
     });
@@ -121,4 +131,38 @@ window.onload = function () {
   callList(resultsUrl);
 };
 
-console.log(find_fib(7));
+numAsc.addEventListener("click", (x) => sortMyData("numAsc"));
+numDesc.addEventListener("click", (x) => sortMyData("numDesc"));
+dateAsc.addEventListener("click", (x) => sortMyData("dateAsc"));
+dateDesc.addEventListener("click", (x) => sortMyData("dateDesc"));
+
+// function compareNumbers(a, b) {
+//   // cases
+//   return a.number - b.number;
+// }
+function sortMyData(howSort) {
+  switch (howSort) {
+    case "numAsc":
+      listOfResults = listOfResults.sort((a, b) => a.number - b.number);
+      break;
+    case "numDesc":
+      listOfResults = listOfResults.sort((a, b) => b.number - a.number);
+      break;
+    case "dateAsc":
+      listOfResults = listOfResults.sort(
+        (a, b) => a.createdDate - b.createdDate
+      );
+      break;
+    case "dateDesc":
+      listOfResults = listOfResults.sort(
+        (a, b) => b.createdDate - a.createdDate
+      );
+      break;
+  }
+
+  console.log(listOfResults);
+  let elem = document.getElementById("results");
+  elem.textContent = "";
+
+  listOfResults.forEach(displayResults);
+}
